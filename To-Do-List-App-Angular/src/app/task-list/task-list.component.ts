@@ -8,7 +8,20 @@ import { Task } from '../task';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  listTasks: Task[] = [];
+  listTasks: Task[] = [
+    {
+      taskId: 1,
+      taskDescription: 'ddddd',
+      complete: false,
+      timeStamp: '111222',
+    },
+    {
+      taskId: 2,
+      taskDescription: 'ddddd',
+      complete: false,
+      timeStamp: '111222',
+    },
+  ];
 
   constructor(private dataService: DataService) {}
 
@@ -21,6 +34,9 @@ export class TaskListComponent implements OnInit {
       error: (err: any) => {
         console.log(err);
       }, // errorHandler
+      complete: () => {
+        console.log('completed');
+      }, // completeHandler
     });
   }
 }

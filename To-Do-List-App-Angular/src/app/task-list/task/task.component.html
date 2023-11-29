@@ -1,11 +1,10 @@
-<form action="/delete" method="delete">
-  <div class="item">
-    <input
-      type="checkbox"
-      name="checkbox"
-      value="{{ task.taskId }}"
-      onChange="this.form.submit()"
-    />
-    <p>{{ task.taskDescription }}</p>
-  </div>
-</form>
+<div class="item">
+  <input
+    type="checkbox"
+    name="checkbox"
+    value="{{ task.taskId }}"
+    (change)="onTaskUpdated()"
+  />
+  <p>{{ task.taskDescription }}</p>
+  <i class="fa-solid fa-circle-minus icon" (click)="onTaskDeleted()"></i>
+</div>

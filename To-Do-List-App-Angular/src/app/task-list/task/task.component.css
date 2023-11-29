@@ -1,12 +1,10 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 .item {
   min-height: 70px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #f1f1f1;
-}
-
-.item:last-child {
-  border-bottom: 0;
 }
 
 input:checked + p {
@@ -27,4 +25,13 @@ p {
 form.item {
   text-align: center;
   margin-left: 20px;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.icon {
+  margin-left: auto;
+  margin-right: 3%;
 }
