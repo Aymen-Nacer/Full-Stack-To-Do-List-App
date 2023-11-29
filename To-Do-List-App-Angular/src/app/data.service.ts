@@ -15,7 +15,7 @@ export class DataService {
     return this.http.get<Task[]>(this.apiUrl);
   }
 
-  postTasks(task: Task): Observable<any> {
+  saveTask(task: Task): Observable<any> {
     return this.http.post<any>(this.apiUrl, task);
   }
 

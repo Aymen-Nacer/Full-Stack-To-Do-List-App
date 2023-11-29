@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Task } from 'src/app/task';
 
 @Component({
   selector: 'app-task',
@@ -6,6 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent {
-  @Input() taskId!: number;
-  @Input() taskDescription!: string;
+  @Input() task!: Task;
 }

@@ -1,17 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Task } from '../task';
 
-class ListItems {
-  'id': number;
-  'name': string;
-}
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
 })
-export class TaskListComponent {
-  listItems: ListItems[] = [
-    { id: 1, name: 'to do list number 1' },
-    { id: 2, name: 'to do list number 2' },
-  ];
+export class TaskListComponent implements OnInit {
+  listTasks: Task[] = [];
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): void {
+    this.dataService.getTasks().subscribe({
+      next: (tasks: Task[]) => {
+        console.log(tasks);
+        this.listTasks = tasks;
+      }, // completeHandler
+      error: (err: any) => {
+        console.log(err);
+      }, // errorHandler
+    });
+  }
 }
