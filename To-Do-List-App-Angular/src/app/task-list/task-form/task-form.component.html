@@ -1,4 +1,10 @@
-<form class="item" action="/" method="post">
-  <input type="text" name="newItem" placeholder="New Item" autocomplete="off" />
-  <button type="submit" name="list">+</button>
-</form>
+<div class="item">
+  <input
+    type="text"
+    name="newItem"
+    placeholder="New Item"
+    autocomplete="off"
+    #TaskDescription
+  />
+  <button (click)="onTaskAdded(TaskDescription)" name="list">+</button>
+</div>
