@@ -1,1 +1,11 @@
-<p>task works!</p>
+<form action="/delete" method="delete">
+  <div class="item">
+    <input
+      type="checkbox"
+      name="checkbox"
+      value="{{ id }}"
+      onChange="this.form.submit()"
+    />
+    <p>{{ name }}</p>
+  </div>
+</form>
