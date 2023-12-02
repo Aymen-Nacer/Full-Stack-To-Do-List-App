@@ -32,7 +32,7 @@ public class TaskController {
 
     // Endpoint to update a task by id
     @PutMapping("/{id}")
-    public ResponseEntity<Task> updateTodo(@PathVariable Long id, @RequestBody Task updatedTodo) {
+    public ResponseEntity<Task> updateTodo(@PathVariable Long id) {
         Task updated = taskService.updateTask(id);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
