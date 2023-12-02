@@ -13,12 +13,8 @@ export class TaskFormComponent {
   onTaskAdded(inputElement: HTMLInputElement): void {
     const TaskDescription = inputElement.value;
     this.dataService.saveTask(TaskDescription).subscribe({
-      next: (response: any) => {
-        console.log(response);
-      }, // completeHandler
-      error: (err: any) => {
-        console.log(err);
-      }, // errorHandler
+      next: (response: any) => {}, // completeHandler
+      error: (err: any) => {}, // errorHandler
     });
   }
 }

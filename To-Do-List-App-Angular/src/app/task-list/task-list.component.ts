@@ -28,15 +28,12 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getTasks().subscribe({
       next: (tasks: Task[]) => {
-        console.log(tasks);
         this.listTasks = tasks;
       }, // completeHandler
       error: (err: any) => {
         console.log(err);
       }, // errorHandler
-      complete: () => {
-        console.log('completed');
-      }, // completeHandler
+      complete: () => {}, // completeHandler
     });
   }
 }
