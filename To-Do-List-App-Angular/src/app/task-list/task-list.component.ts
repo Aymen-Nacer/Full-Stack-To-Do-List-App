@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Task } from '../task';
+import { ReloadService } from '../reload.service';
 
 @Component({
   selector: 'app-task-list',
@@ -8,24 +9,26 @@ import { Task } from '../task';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  listTasks: Task[] = [
-    {
-      taskId: 1,
-      taskDescription: 'ddddd',
-      complete: false,
-      timeStamp: '111222',
-    },
-    {
-      taskId: 2,
-      taskDescription: 'ddddd',
-      complete: false,
-      timeStamp: '111222',
-    },
-  ];
+  listTasks: Task[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private reloadService: ReloadService
+  ) {}
 
   ngOnInit(): void {
+    this.fetchData();
+
+    this.reloadService.getReloadObservable().subscribe(() => {
+      this.reload();
+    });
+  }
+
+  reload() {
+    this.fetchData();
+  }
+
+  fetchData() {
     this.dataService.getTasks().subscribe({
       next: (tasks: Task[]) => {
         this.listTasks = tasks;
@@ -33,7 +36,6 @@ export class TaskListComponent implements OnInit {
       error: (err: any) => {
         console.log(err);
       }, // errorHandler
-      complete: () => {}, // completeHandler
     });
   }
 }
