@@ -5,6 +5,8 @@
     value="{{ task.taskId }}"
     (change)="onTaskUpdated()"
   />
-  <p>{{ task.taskDescription }}</p>
-  <i class="fa-solid fa-circle-minus icon" (click)="onTaskDeleted()"></i>
+  <p [ngClass]="{ lineThroughComplete: task.complete }">
+    {{ task.taskDescription }}
+  </p>
+  <img src="assets/delete.svg" alt="delete" (click)="onTaskDeleted()" />
 </div>

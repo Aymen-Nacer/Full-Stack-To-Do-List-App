@@ -2,7 +2,7 @@
   min-height: 70px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #f1f1f1;
+  padding: 5px 5px;
 }
 
 input:checked + p {
@@ -29,7 +29,18 @@ form.item {
   border-bottom: 0;
 }
 
-.icon {
+img {
+  width: 40px;
+  height: 40px;
   margin-left: auto;
   margin-right: 3%;
+}
+
+.lineThroughComplete {
+  text-decoration: line-through;
+  text-decoration-color: #9653a2;
+}
+
+.createdAt {
+  font-size: 15px;
 }
