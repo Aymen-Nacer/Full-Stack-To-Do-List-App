@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  currentDate: Date = new Date();
+  currentDate: string;
+
+  constructor() {
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+    };
+
+    this.currentDate = new Date().toLocaleDateString('en-US', options);
+  }
 }
