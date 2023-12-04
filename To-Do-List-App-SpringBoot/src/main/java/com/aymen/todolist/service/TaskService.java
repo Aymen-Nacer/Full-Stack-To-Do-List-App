@@ -22,7 +22,9 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task createTask(Task task) {
+    public Task createTask(String taskDescription) {
+        Task task = new Task();
+        task.setTaskDescription(taskDescription);
         return taskRepository.save(task);
     }
 
