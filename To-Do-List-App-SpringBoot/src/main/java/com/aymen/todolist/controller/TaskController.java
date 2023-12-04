@@ -25,8 +25,8 @@ public class TaskController {
 
     // Endpoint to create a new todo
     @PostMapping
-    public ResponseEntity<Task> createTodo(@RequestBody Task task) {
-        Task createdTodo = taskService.createTask(task);
+    public ResponseEntity<Task> createTodo(@RequestBody String taskDescription) {
+        Task createdTodo = taskService.createTask(taskDescription);
         return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
     }
 
