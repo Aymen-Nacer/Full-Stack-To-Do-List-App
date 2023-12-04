@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { ReloadService } from 'src/app/reload.service';
 import { Task } from 'src/app/task';
 
 @Component({
@@ -10,21 +11,21 @@ import { Task } from 'src/app/task';
 export class TaskComponent {
   @Input() task!: Task;
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private reloadService: ReloadService
+  ) {}
 
   onTaskUpdated() {
     console.log('onTaskUpdated');
     this.task.complete = !this.task.complete;
     this.dataService.updateTask(this.task.taskId, this.task).subscribe({
       next: (response: any) => {
-        console.log(response);
+        this.reloadParent();
       }, // completeHandler
       error: (err: any) => {
         console.log(err);
       }, // errorHandler
-      complete: () => {
-        console.log('completed');
-      }, // completeHandler
     });
   }
 
@@ -32,14 +33,15 @@ export class TaskComponent {
     console.log('onTaskDeleted');
     this.dataService.deleteTask(this.task.taskId).subscribe({
       next: (response: any) => {
-        console.log(response);
+        this.reloadParent();
       }, // nextHandler
       error: (err: any) => {
         console.log(err);
       }, // errorHandler
-      complete: () => {
-        console.log('completed');
-      }, // completeHandler
     });
+  }
+
+  reloadParent() {
+    this.reloadService.triggerReload();
   }
 }
