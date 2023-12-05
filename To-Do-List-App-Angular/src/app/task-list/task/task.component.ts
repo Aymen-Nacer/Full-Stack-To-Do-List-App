@@ -9,6 +9,7 @@ import { Task } from 'src/app/task';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent {
+  // Input property to receive task data from parent component
   @Input() task!: Task;
 
   constructor(
@@ -16,34 +17,45 @@ export class TaskComponent {
     private reloadService: ReloadService
   ) {}
 
+  // Method called when a task is updated
   onTaskUpdated() {
+    // Update task locally
     this.dataService.updateTaskLocally(this.task);
+
+    // Update task remotely and handle the response
     this.dataService.updateTaskRemotely(this.task.taskId).subscribe({
       next: (response: any) => {
         console.log('******** Updated Remotely successfully ********');
         console.log('###############################################');
-      }, // completeHandler
+      },
       error: (err: any) => {
         console.log(err);
-      }, // errorHandler
+      },
     });
+
+    // Trigger a reload of the parent component
     this.reloadParent();
   }
 
+  // Method called when a task is deleted
   onTaskDeleted() {
     this.dataService.deleteTaskLocally(this.task);
+
     this.dataService.deleteTaskRemotely(this.task.taskId).subscribe({
       next: (response: any) => {
         console.log('******** Deleted Remotely successfully ********');
         console.log('###############################################');
-      }, // nextHandler
+      },
       error: (err: any) => {
         console.log(err);
-      }, // errorHandler
+      },
     });
+
+    // Trigger a reload of the parent component
     this.reloadParent();
   }
 
+  // Method to trigger a reload of the parent component
   reloadParent() {
     this.reloadService.triggerReload();
   }

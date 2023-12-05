@@ -14,24 +14,34 @@ export class TaskFormComponent {
     private reloadService: ReloadService
   ) {}
 
+  // Method called when a new task is added
   onTaskAdded(inputElement: HTMLInputElement): void {
-    const TaskDescription = inputElement.value;
+    // Extract task description from the input element
+    const taskDescription = inputElement.value;
+
+    // Clear the input element after extracting task description
     inputElement.value = '';
-    this.dataService.saveTaskLocally(TaskDescription);
-    this.dataService.saveTaskRemotely(TaskDescription).subscribe({
+
+    this.dataService.saveTaskLocally(taskDescription);
+
+    this.dataService.saveTaskRemotely(taskDescription).subscribe({
       next: (response: Task) => {
+        // Update the last task ID locally
         this.dataService.updateLastTaskIdLocally(response.taskId);
+
         console.log('******** Saved remotely successfully ********');
         console.log('#############################################');
-      }, // completeHandler
+      },
       error: (err: any) => {
         console.log(err);
-      }, // errorHandler
+      },
     });
 
+    // Trigger a reload of the parent component
     this.reloadParent();
   }
 
+  // Method to trigger a reload of the parent component
   reloadParent() {
     this.reloadService.triggerReload();
   }
