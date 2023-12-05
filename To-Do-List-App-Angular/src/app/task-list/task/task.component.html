@@ -3,6 +3,7 @@
     type="checkbox"
     name="checkbox"
     value="{{ task.taskId }}"
+    [checked]="task.complete"
     (change)="onTaskUpdated()"
   />
   <p [ngClass]="{ lineThroughComplete: task.complete }">
