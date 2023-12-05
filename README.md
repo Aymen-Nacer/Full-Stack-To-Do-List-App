@@ -34,11 +34,13 @@ To get a local copy up and running follow these simple example steps.
 
 ### Clone the Repository
 
-```bash
+```
 git clone https://github.com/your-username/full-stack-app.git
 cd full-stack-app
+```
 
 ### Frontend Setup
+
 ```
 cd To-Do-List-App-Angular
 npm install
@@ -47,6 +49,8 @@ visit http://localhost:4200 in your browser to see the Angular app.
 ```
 
 ### Backend Setup
+
+
 ```
 cd backend
 ./mvnw spring-boot:run
@@ -55,14 +59,12 @@ cd backend
 ### MySQL Database Creation
 
 ```
-
 CREATE TABLE tasks (
     task_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     task_description VARCHAR(255) NOT NULL,
     complete BOOLEAN DEFAULT false NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
-
 ```
 
 
