@@ -10,22 +10,69 @@ import { environment } from 'src/environments/environment';
 export class DataService {
   private apiUrl: string = environment.apiUrl;
 
+  private taskList: Task[] = [];
+
   constructor(private http: HttpClient) {}
 
-  getTasks(): Observable<Task[]> {
+  get task_list(): Task[] {
+    return this.taskList;
+  }
+
+  // Setter for the array
+  set task_list(value: Task[]) {
+    this.taskList = value;
+  }
+
+  // methods to store changes locally
+
+  updateTaskLocally(task: Task) {
+    let indexOfTargetTask = this.taskList.indexOf(task);
+    this.taskList[indexOfTargetTask].complete = !task.complete;
+
+    console.log('******** Updated locally successfully ********');
+  }
+
+  deleteTaskLocally(task: Task) {
+    let indexOfTargetTask = this.taskList.indexOf(task);
+    this.taskList.splice(indexOfTargetTask, 1);
+
+    console.log('******** Deleted locally successfully ********');
+  }
+
+  saveTaskLocally(TaskDescription: string) {
+    const defaultId: number = -1;
+    const newTask: Task = {
+      taskId: defaultId,
+      taskDescription: TaskDescription,
+      complete: false,
+      createdAt: new Date().getTime().toString(),
+    };
+
+    this.taskList.push(newTask);
+    console.log('******** Saved locally successfully ********');
+  }
+
+  updateLastTaskIdLocally(newTaskId: number) {
+    const indexofLast = this.taskList.length - 1;
+    this.taskList[indexofLast].taskId = newTaskId;
+  }
+
+  // methods to store changes remotely
+
+  getTasksRemotely(): Observable<Task[]> {
     return this.http.get<Task[]>(this.apiUrl + '/api/todos');
   }
 
-  saveTask(taskDescription: string): Observable<any> {
+  saveTaskRemotely(taskDescription: string): Observable<any> {
     return this.http.post<any>(this.apiUrl + '/api/todos', taskDescription);
   }
 
-  updateTask(taskId: number, updatedData: Task): Observable<any> {
+  updateTaskRemotely(taskId: number): Observable<any> {
     const url = `${this.apiUrl}/api/todos/${taskId}`;
-    return this.http.put(url, updatedData);
+    return this.http.put(url, null);
   }
 
-  deleteTask(taskId: number): Observable<any> {
+  deleteTaskRemotely(taskId: number): Observable<any> {
     const url = `${this.apiUrl}/api/todos/${taskId}`;
     return this.http.delete(url);
   }

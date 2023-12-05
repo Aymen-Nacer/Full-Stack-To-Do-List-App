@@ -17,28 +17,31 @@ export class TaskComponent {
   ) {}
 
   onTaskUpdated() {
-    console.log('onTaskUpdated');
-    this.task.complete = !this.task.complete;
-    this.dataService.updateTask(this.task.taskId, this.task).subscribe({
+    this.dataService.updateTaskLocally(this.task);
+    this.dataService.updateTaskRemotely(this.task.taskId).subscribe({
       next: (response: any) => {
-        this.reloadParent();
+        console.log('******** Updated Remotely successfully ********');
+        console.log('###############################################');
       }, // completeHandler
       error: (err: any) => {
         console.log(err);
       }, // errorHandler
     });
+    this.reloadParent();
   }
 
   onTaskDeleted() {
-    console.log('onTaskDeleted');
-    this.dataService.deleteTask(this.task.taskId).subscribe({
+    this.dataService.deleteTaskLocally(this.task);
+    this.dataService.deleteTaskRemotely(this.task.taskId).subscribe({
       next: (response: any) => {
-        this.reloadParent();
+        console.log('******** Deleted Remotely successfully ********');
+        console.log('###############################################');
       }, // nextHandler
       error: (err: any) => {
         console.log(err);
       }, // errorHandler
     });
+    this.reloadParent();
   }
 
   reloadParent() {

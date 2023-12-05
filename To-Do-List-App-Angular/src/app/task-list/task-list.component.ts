@@ -17,7 +17,7 @@ export class TaskListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.fetchData();
+    this.fetchDataFromApi();
 
     this.reloadService.getReloadObservable().subscribe(() => {
       this.reload();
@@ -25,13 +25,18 @@ export class TaskListComponent implements OnInit {
   }
 
   reload() {
-    this.fetchData();
+    console.log('**************** Updating the UI ****************');
+    this.listTasks = this.dataService.task_list;
+    console.log('******** Retreived Locally successfully *********');
   }
 
-  fetchData() {
-    this.dataService.getTasks().subscribe({
+  fetchDataFromApi() {
+    this.dataService.getTasksRemotely().subscribe({
       next: (tasks: Task[]) => {
+        this.dataService.task_list = tasks;
         this.listTasks = tasks;
+        console.log('******** Retreived remotely successfully ********');
+        console.log('#################################################');
       }, // completeHandler
       error: (err: any) => {
         console.log(err);
