@@ -2,14 +2,19 @@
 
 This repository contains a full-stack web application built with Angular and Spring Boot, deployed using Docker, and using MySQL as the database.
 
-Live Demo at: https://aymen-nacer.github.io/To-Do-List-App-with-User-Authentication/
+Live Demo at:(https://aymen-nacer.github.io/Full-Stack-To-Do-List-App/)
+
+
+![Capture](https://github.com/Aymen-Nacer/Full-Stack-To-Do-List-App/assets/67188835/7831ce49-a229-4617-8afd-683f2ef47a8b)
+
 
 ## Table of Contents
 
 - [Features](#features)
+- [Concepts Covered](#concepts-covered)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
-- [Concepts Covered](#concepts-covered)
+
 
 
 ## Features
@@ -18,6 +23,45 @@ Live Demo at: https://aymen-nacer.github.io/To-Do-List-App-with-User-Authenticat
 - Spring Boot for the backend
 - Docker for containerization
 - MySQL for the database
+
+## Concepts Covered
+
+### Angular Concepts
+
+- **Dependency Injection**
+- **Observables**
+- **HTTP Client**
+- **CLI Commands**
+- **OnInit Lifecycle Hook**
+- **Component Databinding**
+- **Parent and Child Components**
+- **Component Interaction (Input Binding)**
+- **Event binding**
+- **Property binding**
+- **Template Reference Variable**
+- **NgFor Directive**
+- **ngClass Directive**
+- **Subscribers**
+- **TypeScript**
+- **RxJS**
+
+
+### Spring Boot Concepts
+
+- **Spring Security**
+- **Spring Data JPA**
+- **Java Persistence API**
+- **Spring Hibernate**
+- **Spring Web**
+- **Dependency Injection**
+- **Annotations**
+- **Services**
+- **HTTP Methods (GET, POST, PUT, DELETE)**
+- **PathVariable**
+- **Exception Handling**
+- **CorsConfiguration**
+- **Security Configuration**
+
 
 ## Prerequisites
 
@@ -66,44 +110,6 @@ CREATE TABLE tasks (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 ```
-
-
-## Concepts Covered
-
-### Angular Concepts
-
-1. **Dependency Injection**
-2. **Observables**
-3. **HTTP Client**
-4. **CLI Commands**
-5. **OnInit Lifecycle Hook**
-6. **Component Databinding**
-7. **Parent and Child Components**
-8. **Component Interaction (Input Binding)**
-9. **Event binding**
-10. **Property binding**
-11. **Template Reference Variable**
-12. **NgFor Directive**
-13. **ngClass Directive**
-14. **Subscribers**
-15. **TypeScript**
-16. **RxJS**
-
-### Spring Boot Concepts
-
-1. **Dependency Injection**
-2. **Annotations**
-3. **Services**
-4. **Spring Web**
-5. **HTTP Methods (GET, POST, PUT, DELETE)**
-6. **PathVariable**
-7. **Exception Handling**
-8. **CorsConfiguration**
-9. **Security Configuration**
-10. **Spring Security**
-11. **Spring Data JPA**
-12. **Java Persistence API**
-13. **Spring Hibernate**
 
 
 
