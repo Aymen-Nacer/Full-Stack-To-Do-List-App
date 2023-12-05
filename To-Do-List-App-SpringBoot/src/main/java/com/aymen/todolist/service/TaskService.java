@@ -34,7 +34,7 @@ public class TaskService {
         if (optionalTask.isPresent()) {
             Task existingTask = optionalTask.get();
 
-            existingTask.setComplete(!(existingTask.isComplete()));
+            existingTask.setComplete(!(existingTask.getComplete()));
 
             return taskRepository.save(existingTask);
         } else {
