@@ -2,7 +2,7 @@
 
 This repository contains a full-stack web application built with Angular and Spring Boot, deployed using Docker, and using MySQL as the database.
 
-Live Demo at:(https://aymen-nacer.github.io/Full-Stack-To-Do-List-App/)
+Live Demo at: https://aymen-nacer.github.io/Full-Stack-To-Do-List-App/
 
 
 ![Capture](https://github.com/Aymen-Nacer/Full-Stack-To-Do-List-App/assets/67188835/7831ce49-a229-4617-8afd-683f2ef47a8b)
@@ -28,39 +28,39 @@ Live Demo at:(https://aymen-nacer.github.io/Full-Stack-To-Do-List-App/)
 
 ### Angular Concepts
 
-- **Dependency Injection**
-- **Observables**
-- **HTTP Client**
-- **CLI Commands**
-- **OnInit Lifecycle Hook**
-- **Component Databinding**
-- **Parent and Child Components**
-- **Component Interaction (Input Binding)**
-- **Event binding**
-- **Property binding**
-- **Template Reference Variable**
-- **NgFor Directive**
-- **ngClass Directive**
-- **Subscribers**
-- **TypeScript**
-- **RxJS**
+- Dependency Injection
+- Observables
+- HTTP Client
+- OnInit Lifecycle Hook
+- Component Databinding
+- Parent and Child Components
+- Component Interaction (Input Binding)
+- Event binding
+- Property binding
+- Template Reference Variable
+- NgFor Directive
+- ngClass Directive
+- Subscribers
+- TypeScript
+- RxJS
+- CLI Commands
 
 
 ### Spring Boot Concepts
 
-- **Spring Security**
-- **Spring Data JPA**
-- **Java Persistence API**
-- **Spring Hibernate**
-- **Spring Web**
-- **Dependency Injection**
-- **Annotations**
-- **Services**
-- **HTTP Methods (GET, POST, PUT, DELETE)**
-- **PathVariable**
-- **Exception Handling**
-- **CorsConfiguration**
-- **Security Configuration**
+- Spring Security
+- Spring Data JPA
+- Java Persistence API
+- Spring Hibernate
+- Spring Web
+- Dependency Injection
+- Annotations
+- Services
+- HTTP Methods (GET, POST, PUT, DELETE)
+- PathVariable
+- Exception Handling
+- CorsConfiguration
+- Security Configuration
 
 
 ## Prerequisites
