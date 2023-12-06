@@ -1,4 +1,4 @@
-# Full Stack Application with Angular, Spring Boot, Docker, and MySQL
+# Full Stack To-Do List Application with Angular, Spring Boot, Docker, and MySQL
 
 This repository contains a full-stack web application built with Angular and Spring Boot, deployed using Docker, and using MySQL as the database.
 
